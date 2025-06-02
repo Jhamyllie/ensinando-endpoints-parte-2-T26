@@ -3,4 +3,4 @@ import { PlanetasController } from "../controllers/planetasController";
 
 export const planetasRouter = Router();
 
-planetasRouter.get("/planetas", PlanetasController.getAllPlanetas);
+planetasRouter.get("/planets", PlanetasController.getAllPlanetas);
