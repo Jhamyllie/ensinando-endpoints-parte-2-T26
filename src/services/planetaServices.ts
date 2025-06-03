@@ -8,11 +8,13 @@ class PlanetaServices {
 
     try {
       let response = await client.get("/planets/")
-      listaPlanetas.push(response.data.results);
-
+      listaPlanetas.push(...response.data);
+      
       while (response.data.next) {
         response = await client.get(response.data.next);
-        listaPlanetas.push(...response.data.results);
+        console.log(response);
+        
+        listaPlanetas.push(...response.data);
       }
 
       if (listaPlanetas.length > 0) {
@@ -24,8 +26,8 @@ class PlanetaServices {
     } catch (error) {
       return `Error fetching data: ${error}`;
     }
-
   }
+  
 }
 
 export default PlanetaServices;
